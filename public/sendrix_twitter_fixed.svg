@@ -1,0 +1,42 @@
+<svg width="100%" viewBox="0 0 1500 510" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    
+    <clipPath id="clip"><rect x="110" y="100" width="260" height="260" rx="66"/></clipPath>
+    <clipPath id="clipSm"><rect x="1370" y="418" width="52" height="52" rx="14"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1500" height="500" fill="#F8F7F4" style="fill:rgb(248, 247, 244);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Icon box -->
+  <rect x="110" y="100" width="260" height="260" rx="66" fill="#E8E6E0" style="fill:rgb(232, 230, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Plane — centered in box (center = 240, 230) -->
+  <polygon points="155,310  155,150  345,230" fill="#04342C" clip-path="url(#clip)" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="155,150  345,230  155,230" fill="#085041" clip-path="url(#clip)" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="155,310  240,230  155,270" fill="#EF9F27" clip-path="url(#clip)" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="155,310  155,248  198,230" fill="#E8E6E0" clip-path="url(#clip)" style="fill:rgb(232, 230, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Wordmark — vertically centered -->
+  <text x="430" y="216" text-anchor="start" dominant-baseline="central" font-size="116" fill="#0e0e10" letter-spacing="-3" style="fill:rgb(14, 14, 16);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Syne, sans-serif;font-size:116px;font-weight:700;text-anchor:start;dominant-baseline:central">Sendrix</text>
+
+  <!-- Dot — right after x, same baseline -->
+  <circle cx="1380" cy="216" r="10" fill="#EF9F27" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tagline — below wordmark -->
+  <text x="434" y="318" text-anchor="start" dominant-baseline="central" font-size="26" fill="#B4B2A9" letter-spacing="5" style="fill:rgb(180, 178, 169);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Syne, sans-serif;font-size:26px;font-weight:400;text-anchor:start;dominant-baseline:central">AI EMAIL SEQUENCES</text>
+
+  <!-- Bottom rule -->
+  <line x1="110" y1="408" x2="1390" y2="408" stroke="#D3D1C7" stroke-width="0.8" style="fill:rgb(0, 0, 0);stroke:rgb(211, 209, 199);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- URL bottom left -->
+  <text x="110" y="450" text-anchor="start" dominant-baseline="central" font-size="20" fill="#B4B2A9" letter-spacing="1" style="fill:rgb(180, 178, 169);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Syne, sans-serif;font-size:20px;font-weight:400;text-anchor:start;dominant-baseline:central">sendrix.in</text>
+
+  <!-- Mini icon bottom right -->
+  <rect x="1370" y="418" width="52" height="52" rx="14" fill="#E8E6E0" style="fill:rgb(232, 230, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="1382,458  1382,430  1416,442" fill="#04342C" clip-path="url(#clipSm)" style="fill:rgb(4, 52, 44);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="1382,430  1416,442  1382,442" fill="#085041" clip-path="url(#clipSm)" style="fill:rgb(8, 80, 65);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="1382,458  1400,442  1382,450" fill="#EF9F27" clip-path="url(#clipSm)" style="fill:rgb(239, 159, 39);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="1382,458  1382,444  1394,442" fill="#E8E6E0" clip-path="url(#clipSm)" style="fill:rgb(232, 230, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+</svg>

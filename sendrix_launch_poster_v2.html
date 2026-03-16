@@ -1,0 +1,150 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;1,300&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .poster {
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    background: #04342C;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .top { display: flex; justify-content: space-between; align-items: center; }
+
+  .wordmark {
+    font-size: 18px; font-weight: 600; color: #F8F7F4;
+    letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px;
+  }
+
+  .tagline-pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px; font-weight: 300; letter-spacing: 0.2em;
+    text-transform: uppercase; color: rgba(232,230,224,0.5);
+    border: 0.5px solid rgba(232,230,224,0.2);
+    padding: 6px 14px; border-radius: 100px;
+  }
+
+  .middle {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; padding: 16px 0;
+  }
+
+  .problem {
+    font-size: clamp(13px, 2.5vw, 15px);
+    font-family: 'DM Mono', monospace; font-weight: 300; font-style: italic;
+    color: rgba(232,230,224,0.4); letter-spacing: 0.01em;
+    line-height: 1.9; margin-bottom: 28px; max-width: 340px;
+  }
+  .problem span { display: block; }
+
+  .arrow-row { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .line { flex: 1; height: 0.5px; background: rgba(232,230,224,0.15); max-width: 48px; }
+
+  .headline {
+    font-size: clamp(38px, 9vw, 58px); font-weight: 800;
+    color: #F8F7F4; letter-spacing: -0.04em; line-height: 0.95;
+  }
+  .headline em { font-style: normal; color: #EF9F27; }
+
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+
+  .sub {
+    font-family: 'DM Mono', monospace; font-size: 10px; font-weight: 300;
+    letter-spacing: 0.15em; text-transform: uppercase; color: rgba(232,230,224,0.35);
+  }
+
+  .domain {
+    font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300;
+    letter-spacing: 0.08em; color: #EF9F27;
+  }
+
+  .icon-sm { width: 36px; height: 36px; }
+  .corner-rule { position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: #EF9F27; }
+
+  /* floating icon squares */
+  .deco {
+    position: absolute;
+    border-radius: 18px;
+    overflow: hidden;
+    opacity: 0.07;
+  }
+  .deco-1 { width: 110px; height: 110px; right: 44px; top: 44px; opacity: 0.13; border-radius: 30px; }
+  .deco-2 { width: 64px; height: 64px; right: 170px; top: 80px; opacity: 0.07; border-radius: 18px; }
+  .deco-3 { width: 44px; height: 44px; right: 130px; top: 164px; opacity: 0.05; border-radius: 13px; }
+</style>
+
+<div class="poster">
+
+  <!-- decorative icon echoes -->
+  <div class="deco deco-1">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="110" height="110">
+      <rect width="200" height="200" rx="52" fill="#E8E6E0"/>
+      <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+      <polygon points="53,62 150,100 53,100" fill="#085041"/>
+      <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+      <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+    </svg>
+  </div>
+  <div class="deco deco-2">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+      <rect width="200" height="200" rx="52" fill="#E8E6E0"/>
+      <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+      <polygon points="53,62 150,100 53,100" fill="#085041"/>
+      <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+      <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+    </svg>
+  </div>
+  <div class="deco deco-3">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+      <rect width="200" height="200" rx="52" fill="#E8E6E0"/>
+      <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+      <polygon points="53,62 150,100 53,100" fill="#085041"/>
+      <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+      <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+    </svg>
+  </div>
+
+  <div class="top">
+    <div class="wordmark">
+      <svg class="icon-sm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="200" height="200" rx="52" fill="#E8E6E0"/>
+        <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+        <polygon points="53,62 150,100 53,100" fill="#085041"/>
+        <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+        <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+      </svg>
+      sendrix
+    </div>
+    <div class="tagline-pill">AI email sequences</div>
+  </div>
+
+  <div class="middle">
+    <p class="problem">
+      <span>You spend hours writing emails.</span>
+      <span>They get ignored. You start over.</span>
+    </p>
+    <div class="arrow-row">
+      <div class="line"></div>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M2 8h12M9 3l5 5-5 5" stroke="#EF9F27" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h1 class="headline">Send smarter.<br><em>Close faster.</em></h1>
+  </div>
+
+  <div class="bottom">
+    <span class="sub">Coming soon</span>
+    <span class="domain">sendrix.in</span>
+  </div>
+
+  <div class="corner-rule"></div>
+</div>

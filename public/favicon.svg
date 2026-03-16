@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip">
+      <rect width="32" height="32" rx="9" />
+    </clipPath>
+  </defs>
+  <rect width="32" height="32" rx="9" fill="#E8E6E0" />
+  <polygon points="6,26 6,6 28,16" fill="#04342C" clip-path="url(#clip)" />
+  <polygon points="6,6 28,16 6,16" fill="#085041" clip-path="url(#clip)" />
+  <polygon points="6,26 16,16 6,21" fill="#EF9F27" clip-path="url(#clip)" />
+  <polygon points="6,26 6,18 12,16" fill="#E8E6E0" clip-path="url(#clip)" />
+</svg>

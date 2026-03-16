@@ -1,0 +1,196 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Mono:wght@300;400&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .scene {
+    min-height: 360px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 36px; background: transparent;
+    font-family: 'Syne', sans-serif;
+  }
+
+  /* ── orbit ring ── */
+  .orbit-wrap {
+    position: relative;
+    width: 160px; height: 160px;
+  }
+
+  .orbit-ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 0.5px dashed rgba(4,52,44,0.2);
+    animation: spin 4s linear infinite;
+  }
+
+  .orbit-ring::before {
+    content: '';
+    position: absolute; top: -4px; left: 50%; transform: translateX(-50%);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #EF9F27;
+    box-shadow: 0 0 0 3px rgba(239,159,39,0.2);
+  }
+
+  /* ── center icon ── */
+  .center-icon {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    animation: breathe 2s ease-in-out infinite;
+  }
+
+  /* ── envelope cards flying out ── */
+  .env {
+    position: absolute;
+    width: 22px; height: 16px;
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0;
+  }
+
+  .env svg { width: 100%; height: 100%; }
+
+  .env-1 { animation: shoot1 2.4s ease-in-out infinite; animation-delay: 0s; }
+  .env-2 { animation: shoot2 2.4s ease-in-out infinite; animation-delay: 0.5s; }
+  .env-3 { animation: shoot3 2.4s ease-in-out infinite; animation-delay: 1.0s; }
+  .env-4 { animation: shoot4 2.4s ease-in-out infinite; animation-delay: 1.5s; }
+
+  /* ── progress bar ── */
+  .bar-wrap {
+    width: 160px; height: 2px;
+    background: rgba(4,52,44,0.1); border-radius: 2px; overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(to right, #04342C, #EF9F27);
+    border-radius: 2px;
+    animation: fill 2.4s ease-in-out infinite;
+  }
+
+  /* ── label ── */
+  .status {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 300;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(4,52,44,0.45);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .dot-pulse { display: flex; gap: 4px; }
+  .dp {
+    width: 3px; height: 3px; border-radius: 50%;
+    background: #EF9F27; opacity: 0.3;
+    animation: dpulse 1.2s ease-in-out infinite;
+  }
+  .dp:nth-child(2) { animation-delay: 0.2s; }
+  .dp:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+
+  @keyframes fill {
+    0%   { width: 0%; opacity: 1; }
+    80%  { width: 100%; opacity: 1; }
+    95%  { width: 100%; opacity: 0; }
+    100% { width: 0%; opacity: 0; }
+  }
+
+  @keyframes dpulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* envelopes shoot out in 4 diagonal directions */
+  @keyframes shoot1 {
+    0%   { transform: translate(0,0) scale(0.5); opacity: 0; }
+    10%  { opacity: 1; }
+    60%  { transform: translate(90px, -70px) scale(1); opacity: 0.9; }
+    100% { transform: translate(110px, -90px) scale(0.6); opacity: 0; }
+  }
+  @keyframes shoot2 {
+    0%   { transform: translate(0,0) scale(0.5); opacity: 0; }
+    10%  { opacity: 1; }
+    60%  { transform: translate(-85px, -65px) scale(1); opacity: 0.9; }
+    100% { transform: translate(-105px, -85px) scale(0.6); opacity: 0; }
+  }
+  @keyframes shoot3 {
+    0%   { transform: translate(0,0) scale(0.5); opacity: 0; }
+    10%  { opacity: 1; }
+    60%  { transform: translate(80px, 60px) scale(1); opacity: 0.9; }
+    100% { transform: translate(100px, 80px) scale(0.6); opacity: 0; }
+  }
+  @keyframes shoot4 {
+    0%   { transform: translate(0,0) scale(0.5); opacity: 0; }
+    10%  { opacity: 1; }
+    60%  { transform: translate(-75px, 65px) scale(1); opacity: 0.9; }
+    100% { transform: translate(-95px, 85px) scale(0.6); opacity: 0; }
+  }
+</style>
+
+<div class="scene">
+  <div class="orbit-wrap">
+
+    <!-- orbit ring with amber dot -->
+    <div class="orbit-ring"></div>
+
+    <!-- flying envelopes -->
+    <div class="env env-1" style="top:50%;left:50%;margin:-8px 0 0 -11px;">
+      <svg viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="16" rx="2.5" fill="#04342C"/>
+        <path d="M1 2l10 7 10-7" stroke="#EF9F27" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="env env-2" style="top:50%;left:50%;margin:-8px 0 0 -11px;">
+      <svg viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="16" rx="2.5" fill="#04342C"/>
+        <path d="M1 2l10 7 10-7" stroke="#EF9F27" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="env env-3" style="top:50%;left:50%;margin:-8px 0 0 -11px;">
+      <svg viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="16" rx="2.5" fill="#04342C"/>
+        <path d="M1 2l10 7 10-7" stroke="#EF9F27" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="env env-4" style="top:50%;left:50%;margin:-8px 0 0 -11px;">
+      <svg viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="22" height="16" rx="2.5" fill="#04342C"/>
+        <path d="M1 2l10 7 10-7" stroke="#EF9F27" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- center icon -->
+    <div class="center-icon">
+      <svg width="72" height="72" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" rx="52" fill="#E8E6E0"/>
+        <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+        <polygon points="53,62 150,100 53,100" fill="#085041"/>
+        <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+        <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- progress bar -->
+  <div class="bar-wrap">
+    <div class="bar-fill"></div>
+  </div>
+
+  <!-- label -->
+  <div class="status">
+    Sending sequence
+    <div class="dot-pulse">
+      <div class="dp"></div>
+      <div class="dp"></div>
+      <div class="dp"></div>
+    </div>
+  </div>
+</div>

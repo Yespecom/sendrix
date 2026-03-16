@@ -1,0 +1,132 @@
+.root {
+  --loader-scale: 1;
+  --loader-label-color: #5f5e5a;
+  --loader-trail-color: #ef9f27;
+  --loader-dot-base: #e8e6e0;
+  --loader-dot-active: #ef9f27;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(28px * var(--loader-scale));
+}
+
+.trackShell {
+  position: relative;
+  width: calc(280px * var(--loader-scale));
+  height: calc(60px * var(--loader-scale));
+}
+
+.track {
+  position: relative;
+  width: 280px;
+  height: 60px;
+  transform: scale(var(--loader-scale));
+  transform-origin: top left;
+}
+
+.plane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sendrixFly 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.trail {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(to right, transparent, var(--loader-trail-color));
+  animation: sendrixTrail 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.dots {
+  display: flex;
+  gap: calc(8px * var(--loader-scale));
+}
+
+.dot {
+  width: calc(7px * var(--loader-scale));
+  height: calc(7px * var(--loader-scale));
+  border-radius: 9999px;
+  background: var(--loader-dot-base);
+  animation: sendrixPulse 1.8s ease-in-out infinite;
+}
+
+.dot1 {
+  animation-delay: 0s;
+}
+
+.dot2 {
+  animation-delay: 0.2s;
+}
+
+.dot3 {
+  animation-delay: 0.4s;
+}
+
+.label {
+  font-size: calc(13px * var(--loader-scale));
+  letter-spacing: calc(0.08em * var(--loader-scale));
+  color: var(--loader-label-color);
+}
+
+.dotsOnly {
+  --loader-scale: 1;
+  --loader-dot-base: #e8e6e0;
+  --loader-dot-active: #ef9f27;
+  display: inline-flex;
+  align-items: center;
+  gap: calc(8px * var(--loader-scale));
+}
+
+@keyframes sendrixFly {
+  0% {
+    transform: translate(0px, 30px) rotate(-5deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(260px, -10px) rotate(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sendrixTrail {
+  0% {
+    width: 0;
+    opacity: 0;
+    left: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    width: 240px;
+    opacity: 0;
+    left: 20px;
+  }
+}
+
+@keyframes sendrixPulse {
+  0%,
+  100% {
+    background: var(--loader-dot-base);
+    transform: scale(1);
+  }
+  50% {
+    background: var(--loader-dot-active);
+    transform: scale(1.35);
+  }
+}

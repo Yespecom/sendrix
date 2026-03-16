@@ -1,0 +1,102 @@
+.scene {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+}
+
+.iconWrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: #ef9f27;
+  border-right-color: rgba(239, 159, 39, 0.3);
+  animation: aiSpin 1.2s linear infinite;
+}
+
+.ring2 {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-bottom-color: rgba(232, 230, 224, 0.55);
+  border-left-color: rgba(232, 230, 224, 0.22);
+  animation: aiSpin 2s linear infinite reverse;
+}
+
+.iconCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: aiBreathe 1.8s ease-in-out infinite;
+}
+
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e8e6e0;
+  letter-spacing: -0.02em;
+}
+
+.typing {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(232, 230, 224, 0.74);
+  min-height: 16px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 12px;
+  background: #ef9f27;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: aiBlink 0.7s step-end infinite;
+}
+
+@keyframes aiSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes aiBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes aiBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}

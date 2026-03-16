@@ -1,0 +1,99 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=DM+Mono:wght@300&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  .scene{
+    min-height:280px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:28px;
+  }
+  .icon-wrap{position:relative;width:72px;height:72px;}
+  .ring{
+    position:absolute;inset:0;border-radius:50%;
+    border:1.5px solid transparent;
+    border-top-color:#EF9F27;
+    border-right-color:rgba(239,159,39,0.3);
+    animation:spin 1.2s linear infinite;
+  }
+  .ring2{
+    position:absolute;inset:8px;border-radius:50%;
+    border:1px solid transparent;
+    border-bottom-color:rgba(4,52,44,0.35);
+    border-left-color:rgba(4,52,44,0.15);
+    animation:spin 2s linear infinite reverse;
+  }
+  .icon-center{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    animation:breathe 1.8s ease-in-out infinite;
+  }
+  .text-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .label{
+    font-family:'Syne',sans-serif;font-size:15px;font-weight:600;
+    color:var(--color-text-primary);letter-spacing:-0.02em;
+  }
+  .typing{
+    font-family:'DM Mono',monospace;font-size:11px;font-weight:300;
+    letter-spacing:0.06em;color:var(--color-text-secondary);
+    min-height:16px;
+  }
+  .cursor{
+    display:inline-block;width:2px;height:12px;
+    background:#EF9F27;margin-left:2px;
+    vertical-align:middle;
+    animation:blink 0.7s step-end infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes breathe{0%,100%{transform:scale(1);}50%{transform:scale(1.07);}}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+</style>
+
+<div class="scene">
+  <div class="icon-wrap">
+    <div class="ring"></div>
+    <div class="ring2"></div>
+    <div class="icon-center">
+      <svg width="38" height="38" viewBox="0 0 200 200">
+        <rect width="200" height="200" rx="52" fill="#E8E6E0"/>
+        <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+        <polygon points="53,62 150,100 53,100" fill="#085041"/>
+        <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+        <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="text-wrap">
+    <span class="label">Generating your sequence</span>
+    <span class="typing" id="typ"><span id="txt"></span><span class="cursor"></span></span>
+  </div>
+</div>
+
+<script>
+const phrases = [
+  'Analysing your leads...',
+  'Writing subject lines...',
+  'Personalising each email...',
+  'Crafting follow-ups...',
+  'Optimising for replies...',
+  'Almost ready...',
+];
+let pi=0, ci=0, deleting=false, pause=0;
+const el = document.getElementById('txt');
+
+function tick(){
+  if(pause>0){pause--;setTimeout(tick,40);return;}
+  const word = phrases[pi];
+  if(!deleting){
+    ci++;
+    el.textContent = word.slice(0,ci);
+    if(ci===word.length){deleting=true;pause=55;}
+    setTimeout(tick,55);
+  } else {
+    ci--;
+    el.textContent = word.slice(0,ci);
+    if(ci===0){deleting=false;pi=(pi+1)%phrases.length;pause=12;}
+    setTimeout(tick,28);
+  }
+}
+tick();
+</script>

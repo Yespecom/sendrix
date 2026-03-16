@@ -1,0 +1,262 @@
+.scene {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  background: transparent;
+}
+
+.orbitWrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.orbitRing {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 0.5px dashed rgba(4, 52, 44, 0.2);
+  animation: orbitSpin 4s linear infinite;
+}
+
+.orbitRing::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef9f27;
+  box-shadow: 0 0 0 3px rgba(239, 159, 39, 0.2);
+}
+
+.centerIcon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: orbitBreathe 2s ease-in-out infinite;
+}
+
+.env {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -8px 0 0 -11px;
+  width: 22px;
+  height: 16px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.env svg {
+  width: 100%;
+  height: 100%;
+}
+
+.env1 {
+  animation: orbitShoot1 2.4s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.env2 {
+  animation: orbitShoot2 2.4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.env3 {
+  animation: orbitShoot3 2.4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.env4 {
+  animation: orbitShoot4 2.4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.barWrap {
+  width: 160px;
+  height: 2px;
+  background: rgba(4, 52, 44, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #04342c, #ef9f27);
+  border-radius: 2px;
+  animation: orbitFill 2.4s ease-in-out infinite;
+}
+
+.status {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(4, 52, 44, 0.52);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dotPulse {
+  display: flex;
+  gap: 4px;
+}
+
+.dp {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ef9f27;
+  opacity: 0.3;
+  animation: orbitDotPulse 1.2s ease-in-out infinite;
+}
+
+.dp:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dp:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes orbitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitBreathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes orbitFill {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  80% {
+    width: 100%;
+    opacity: 1;
+  }
+  95% {
+    width: 100%;
+    opacity: 0;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+
+@keyframes orbitDotPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes orbitShoot1 {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(90px, -70px) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(110px, -90px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes orbitShoot2 {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-85px, -65px) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-105px, -85px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes orbitShoot3 {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(80px, 60px) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(100px, 80px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes orbitShoot4 {
+  0% {
+    transform: translate(0, 0) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-75px, 65px) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-95px, 85px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .scene {
+    min-height: 320px;
+    gap: 28px;
+  }
+
+  .orbitWrap {
+    transform: scale(0.9);
+  }
+}

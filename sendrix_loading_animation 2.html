@@ -1,0 +1,50 @@
+<style>
+  .wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 320px; gap: 28px; }
+  .track { position: relative; width: 280px; height: 60px; }
+  .plane { position: absolute; top: 0; left: 0; animation: fly 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .trail { position: absolute; top: 28px; left: 0; height: 2px; background: linear-gradient(to right, transparent, #EF9F27); border-radius: 1px; width: 0; animation: trail 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .dots { display: flex; gap: 8px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #E8E6E0; animation: pulse 1.8s ease-in-out infinite; }
+  .dot:nth-child(1) { animation-delay: 0s; }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  .label { font-size: 13px; color: var(--color-text-secondary); letter-spacing: 0.08em; }
+
+  @keyframes fly {
+    0%   { transform: translate(0px, 30px) rotate(-5deg); opacity: 0; }
+    10%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { transform: translate(260px, -10px) rotate(-18deg); opacity: 0; }
+  }
+  @keyframes trail {
+    0%   { width: 0; opacity: 0; left: 0; }
+    20%  { opacity: 1; }
+    80%  { opacity: 0.6; }
+    100% { width: 240px; opacity: 0; left: 20px; }
+  }
+  @keyframes pulse {
+    0%, 100% { background: #E8E6E0; transform: scale(1); }
+    50%       { background: #EF9F27; transform: scale(1.35); }
+  }
+</style>
+
+<div class="wrap">
+  <div class="track">
+    <div class="trail"></div>
+    <div class="plane">
+      <svg width="40" height="40" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="200" height="200" rx="52" fill="#E8E6E0"/>
+        <polygon points="53,138 53,62 150,100" fill="#04342C"/>
+        <polygon points="53,62 150,100 53,100" fill="#085041"/>
+        <polygon points="53,138 102,100 53,118" fill="#EF9F27"/>
+        <polygon points="53,138 53,110 86,100" fill="#E8E6E0"/>
+      </svg>
+    </div>
+  </div>
+  <div class="dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+  <span class="label">Sending your sequence...</span>
+</div>
