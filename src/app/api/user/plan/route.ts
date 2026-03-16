@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth/next'
 import { createClient } from '@supabase/supabase-js'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/lib/auth'
 import { PLAN_CONFIG, getPlanLabel, normalizePlan, resolveSignupPlanSelection } from '@/lib/plans'
 
 const supabase = createClient(

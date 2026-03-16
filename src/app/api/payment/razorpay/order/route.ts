@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { createClient } from '@supabase/supabase-js';
 import { razorpay } from '@/lib/razorpay';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import { PLAN_CONFIG, normalizePlan, resolveSignupPlanSelection } from '@/lib/plans';
 
 const supabase = createClient(
