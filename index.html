@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sendrix | AI-Powered Onboarding Sequences in 10 Minutes</title>
+    <meta name="description" content="Eliminate churn with AI-written onboarding sequences. From brief to live emails in 10 minutes.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #04342C;
+            --primary-light: #0F6E56;
+            --accent: #EF9F27;
+            --accent-dark: #BA7517;
+            --bg: #F5F3EC;
+            --text-main: #0e0e10;
+            --text-muted: #5F5E5A;
+            --glass: rgba(255, 255, 255, 0.7);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- UI UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            items-center: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(4, 52, 44, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -8px rgba(4, 52, 44, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(4, 52, 44, 0.05);
+            transform: translateY(-2px);
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 243, 236, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(211, 209, 199, 0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-box {
+            width: 32px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 100px 0 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(15, 110, 86, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background-color: #E1F5EE;
+            border: 1px solid rgba(29, 158, 117, 0.2);
+            border-radius: 100px;
+            color: #0F6E56;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 32px;
+        }
+
+        .badge i {
+            width: 14px;
+            height: 14px;
+        }
+
+        h1 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            color: var(--text-main);
+            margin-bottom: 24px;
+        }
+
+        h1 span {
+            display: block;
+            color: transparent;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        /* --- VISUALIZATION --- */
+        .hero-visual {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 32px;
+            background: white;
+            padding: 12px;
+            border: 1px solid #D3D1C7;
+            box-shadow: 0 40px 100px -20px rgba(4, 52, 44, 0.15);
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .browser-bar {
+            height: 48px;
+            background: #F5F3EC;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 8px;
+            border-bottom: 1px solid #E5E2D7;
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f57; }
+        .dot-yellow { background: #febc2e; }
+        .dot-green { background: #28c840; }
+
+        .browser-content {
+            border-radius: 0 0 20px 20px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-visual:hover .hero-image {
+            transform: scale(1.02);
+        }
+
+        /* --- FEATURES --- */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-tag {
+            text-align: center;
+            color: var(--primary-light);
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            border-radius: 24px;
+            background: #F9F7F2;
+            border: 1px solid rgba(4, 52, 44, 0.05);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: 0 20px 40px -10px rgba(4, 52, 44, 0.08);
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* --- CTA --- */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, var(--primary) 0%, #08604b 100%);
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid #D3D1C7;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 48px; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .hero-btns { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container" style="display: flex; width: 100%; justify-content: space-between; align-items: center;">
+            <a href="#" class="logo">
+                <div class="logo-box">S</div>
+                sendrix
+            </a>
+            <div class="nav-links">
+                <a href="#how">How it works</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="/login" class="btn btn-outline" style="padding: 10px 20px;">Sign in</a>
+                <a href="/signup" class="btn btn-primary" style="padding: 10px 20px;">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="badge">
+                    <i data-lucide="sparkles"></i>
+                    100 Founding spots available. 47 claimed.
+                </div>
+                <h1>
+                    AI-Powered Onboarding
+                    <span>In Under 10 Minutes.</span>
+                </h1>
+                <p class="hero-desc">
+                    Stop losing users on day one. Sendrix builds agency-grade email sequences that guide your users to the "aha" moment automatically.
+                </p>
+                <div class="hero-btns">
+                    <a href="/signup" class="btn btn-primary">
+                        Claim Your Founding Spot 
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                    <a href="#how" class="btn btn-outline">Watch Demo</a>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="browser-bar">
+                        <div class="dot dot-red"></div>
+                        <div class="dot dot-yellow"></div>
+                        <div class="dot dot-green"></div>
+                        <div style="flex: 1; text-align: center; color: var(--text-muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Sendrix AI Workspace</div>
+                    </div>
+                    <div class="browser-content">
+                        <img src="public/hero-vision.png" alt="Sendrix AI Dashboard" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <span class="section-tag">Powerful Automation</span>
+                <h2 class="section-title">Built for SaaS Founders.</h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="wand-2"></i></div>
+                        <h3>AI Copywriting</h3>
+                        <p>Our models are trained on high-converting SaaS sequences. No more staring at a blank screen.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="zap"></i></div>
+                        <h3>Rapid Deployment</h3>
+                        <p>Answer 4 questions about your product and get 6 emails ready to ship in under 10 minutes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i data-lucide="credit-card"></i></div>
+                        <h3>Razorpay Ready</h3>
+                        <p>Fully integrated with Razorpay for seamless founder payments and upgrade paths.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-bg"></div>
+            <div class="container cta-content">
+                <h2>Ready to automate your growth?</h2>
+                <p>Join 47 founders who have already eliminated manual onboarding churn with Sendrix.</p>
+                <a href="/signup" class="btn btn-white btn-large">
+                    Get Started Now
+                    <i data-lucide="sparkles"></i>
+                </a>
+                <p style="margin-top: 24px; font-size: 14px; opacity: 0.6;">No complex setup required. Connect Resend and go.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sendrix AI. All rights reserved. Built for SaaS Founders.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
